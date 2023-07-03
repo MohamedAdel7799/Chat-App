@@ -12,7 +12,7 @@ const io = new Server (httpServer,{
     }
 });
 io.use((socket,next)=>{
-    const username=socket.handshake.auth.username;
+    const username=Socket.handshake.auth.username;
 
     if(!username){
         return next(new Error("Invalid username"));
@@ -25,7 +25,7 @@ io.use((socket,next)=>{
 })
 
 io.on("Connection",async(Socket)=>{
-socket.emit("session",{userid:socket.userid,username:socket.username})
+Socket.emit("session",{userid:Socket.userid,username:Socket.username})
 });
 
 
